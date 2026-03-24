@@ -15,32 +15,31 @@
         .stat-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f5f9; }
         .stat-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); border-color: #3b82f6; }
         .img-box { border-radius: 1.5rem; background: #1e293b; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+        input::placeholder { font-weight: 400; font-size: 0.9rem; color: #94a3b8; }
     </style>
 </head>
 <body class="bg-slate-50">
 
     <nav class="fixed w-full z-50 glass-nav">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-        
-        <div class="flex items-center gap-6">
-            <div class="h-14 w-40 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-slate-100 p-1 shadow-sm">
-                <img src="logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <div class="h-14 w-44 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1 shadow-sm">
+                    <img src="logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
+                </div>
+                <div class="border-l pl-6 border-slate-300">
+                    <h1 class="text-xl font-black tracking-tight text-slate-900 leading-none">QUALITY ASSURANCE</h1>
+                    <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 font-bold mt-1">Industrial Training Portal</p>
+                </div>
             </div>
             
-            <div class="border-l pl-6 border-slate-300">
-                <h1 class="text-xl font-extrabold tracking-tight text-slate-900 leading-none">QUALITY ASSURANCE</h1>
-                <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 font-bold mt-1">Industrial Training Portal</p>
+            <div class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <a href="#overview" class="hover:text-blue-600 transition">Overview</a>
+                <a href="#account-lookup" class="hover:text-blue-600 transition">Search</a>
+                <a href="#standards" class="hover:text-blue-600 transition">Standards</a>
+                <a href="#gallery" class="hover:text-blue-600 transition">Gallery</a>
             </div>
         </div>
-        
-        <div class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-widest text-slate-500">
-            <a href="#overview" class="hover:text-blue-600 transition">Overview</a>
-            <a href="#standards" class="hover:text-blue-600 transition">Standards</a>
-            <a href="#gallery" class="hover:text-blue-600 transition">Visual Guide</a>
-            <span class="bg-slate-900 text-white px-6 py-2 rounded-full cursor-default shadow-lg shadow-blue-900/20">Active Session</span>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <section id="overview" class="min-h-screen hero-bg text-white flex items-center pt-20">
         <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
@@ -48,26 +47,40 @@
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold mb-8 tracking-widest uppercase">
                     Trim & Accessories Inspection Module
                 </div>
-                <h2 class="text-6xl lg:text-8xl font-black leading-[0.9] mb-8">TRIM <br><span class="text-blue-500 underline decoration-blue-500/30">ID SYSTEM.</span></h2>
-                <p class="text-slate-400 text-lg leading-relaxed max-w-lg mb-10">
-                    A comprehensive digital guide for assuring trims-accessories per buyer standards and minimizing industrial rejection.
+                <h2 class="text-6xl lg:text-7xl font-black leading-[0.9] mb-8 uppercase italic">Trim <br><span class="text-blue-500">Id System.</span></h2>
+                <p class="text-slate-400 text-lg leading-relaxed max-w-lg mb-10 font-light">
+                    Industrial guide for assuring trims and accessories per buyer standards and minimizing quality rejections.
                 </p>
                 <div class="flex gap-6">
-                    <div class="flex flex-col">
-                        <span class="text-3xl font-black">52</span>
-                        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Checkpoints</span>
-                    </div>
+                    <div class="flex flex-col"><span class="text-3xl font-black tracking-tighter">52</span><span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Visuals</span></div>
                     <div class="w-px h-12 bg-slate-800"></div>
-                    <div class="flex flex-col">
-                        <span class="text-3xl font-black">0.65</span>
-                        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">AQL (M&S)</span>
-                    </div>
+                    <div class="flex flex-col"><span class="text-3xl font-black tracking-tighter text-blue-400">0.65</span><span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">M&S AQL</span></div>
                 </div>
             </div>
             <div class="reveal-right">
-                <div class="img-box shadow-2xl shadow-blue-900/40">
-                    <div class="aspect-video flex items-center justify-center">
-                        <span class="text-slate-600 font-mono italic">[MAIN VISUAL - IMAGE 1]</span>
+                <div class="img-box shadow-2xl shadow-blue-900/40 border-8 border-white/5 aspect-video flex items-center justify-center">
+                    <img src="images/1.jpg" alt="Main Title Visual" class="w-full h-full object-cover opacity-0 transition-opacity duration-1000" onload="this.style.opacity=1">
+                    <p id="img-error-1" class="absolute text-slate-600 font-mono text-xs italic">IMG 1 - Main Visual</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="account-lookup" class="py-24 bg-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white p-10 rounded-[3rem] shadow-2xl border border-blue-50 shadow-blue-900/5">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-black text-slate-900 italic uppercase">Quick Account Lookup</h3>
+                    <p class="text-slate-400 text-sm mt-2">Enter the Account Number to identify the Buyer name.</p>
+                </div>
+                <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
+                    <input type="text" id="accInput" onkeyup="searchAccount()" placeholder="e.g. 212 or 628S" 
+                        class="w-full md:w-72 px-8 py-5 rounded-2xl border-2 border-slate-100 focus:border-blue-500 outline-none transition-all font-black text-2xl text-center text-blue-900 shadow-inner bg-slate-50">
+                    <div class="hidden md:block text-slate-300">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="3" d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+                    </div>
+                    <div id="resultBox" class="w-full md:w-auto min-w-[350px] px-8 py-5 bg-slate-900 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated uppercase tracking-tight">
+                        WAITING FOR INPUT...
                     </div>
                 </div>
             </div>
@@ -77,31 +90,20 @@
     <section id="standards" class="py-32 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-3 gap-10">
-                <div class="stat-card p-12 rounded-[2.5rem] bg-slate-50 reveal-up">
-                    <h4 class="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] mb-6 underline">Technical Standard</h4>
-                    <h3 class="text-2xl font-black text-slate-900 mb-8">AQL System</h3>
-                    <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex justify-between items-center">
-                            <span class="font-bold text-slate-500">M&S</span>
-                            <span class="text-2xl font-black text-blue-600">0.65</span>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex justify-between items-center">
-                            <span class="font-bold text-slate-500">OTHER</span>
-                            <span class="text-2xl font-black text-blue-600">2.50</span>
-                        </div>
+                <div class="stat-card p-12 rounded-[2.5rem] bg-slate-50 reveal-up border-b-8 border-blue-500">
+                    <h3 class="text-2xl font-black text-slate-900 mb-8 italic">AQL System</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-2xl flex justify-between items-center"><span class="font-bold text-slate-400 text-sm">M&S</span><span class="text-2xl font-black text-blue-600">0.65</span></div>
+                        <div class="bg-white p-5 rounded-2xl flex justify-between items-center"><span class="font-bold text-slate-400 text-sm">OTHER</span><span class="text-2xl font-black text-blue-600">2.50</span></div>
                     </div>
                 </div>
-
-                <div class="stat-card p-12 rounded-[2.5rem] bg-white border-t-[16px] border-green-500 reveal-up" style="transition-delay: 150ms;">
-                    <h4 class="text-xs font-bold text-green-600 uppercase tracking-[0.2em] mb-6">Status: Passed</h4>
+                <div class="stat-card p-12 rounded-[2.5rem] bg-white border-t-[16px] border-green-500 reveal-up shadow-lg" style="transition-delay: 150ms;">
                     <h3 class="text-2xl font-black text-slate-900 mb-4 italic uppercase">Green Tag</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Verification successful. Attach Green Tag and transfer to Central Warehouse (CWH) relevant location.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed">Verification passed. Attach Green Tag and transfer to Central Warehouse (CWH).</p>
                 </div>
-
-                <div class="stat-card p-12 rounded-[2.5rem] bg-white border-t-[16px] border-red-500 reveal-up" style="transition-delay: 300ms;">
-                    <h4 class="text-xs font-bold text-red-600 uppercase tracking-[0.2em] mb-6">Status: Rejected</h4>
+                <div class="stat-card p-12 rounded-[2.5rem] bg-white border-t-[16px] border-red-500 reveal-up shadow-lg" style="transition-delay: 300ms;">
                     <h3 class="text-2xl font-black text-slate-900 mb-4 italic uppercase">Red Tag</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Defects identified. Generate Reject Report. Review with QAM/AE and move to Isolation.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed">Defects identified. Generate Reject Report. Move to Isolation for review.</p>
                 </div>
             </div>
         </div>
@@ -109,57 +111,60 @@
 
     <section id="gallery" class="py-32 bg-slate-950">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
-                <div>
-                    <h2 class="text-4xl font-black text-white italic">VISUAL EVIDENCE</h2>
-                    <p class="text-slate-500 mt-2 font-medium tracking-wide">Inspection Reference Library (52 Reference Points)</p>
-                </div>
-                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-800">
-                    <button class="px-6 py-2 bg-blue-600 text-white rounded-lg text-[10px] font-black uppercase tracking-widest">View All</button>
-                    <button class="px-6 py-2 text-slate-400 text-[10px] font-black uppercase tracking-widest">Detailed</button>
-                </div>
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black text-white italic tracking-tighter">VISUAL EVIDENCE LIBRARY</h2>
+                <div class="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
             </div>
-            
-            <div id="visual-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                </div>
+            <div id="visual-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
         </div>
     </section>
 
     <footer class="bg-white py-16 border-t border-slate-100">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-4 mb-8 md:mb-0">
-                <div class="h-10 w-10 bg-slate-50 border rounded flex items-center justify-center text-[8px] font-bold text-slate-300 italic uppercase leading-none">Your<br>Logo</div>
-                <div>
-                    <p class="font-black text-slate-900 text-sm tracking-tight uppercase">Internal Training Module</p>
-                    <p class="text-[10px] text-slate-400 font-medium">Compliance & Quality Control Division</p>
-                </div>
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
+            <div class="flex items-center gap-4">
+                <div class="h-10 w-24 flex items-center justify-center border rounded grayscale opacity-50"><img src="logo.png" class="max-h-full object-contain"></div>
+                <div><p class="font-black text-slate-900 text-sm uppercase">Training Portal</p><p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Compliance Division</p></div>
             </div>
-            
-            <div class="text-center md:text-right">
-                <p class="text-slate-400 text-[9px] uppercase tracking-[0.3em] font-bold mb-2">Technical Partnership</p>
-                <p class="text-slate-800 font-bold text-sm tracking-tight">DEVELOPED FOR <span class="text-blue-600 underline">THE COMPANY</span></p>
-                <div class="mt-2 flex items-center justify-center md:justify-end gap-2">
-                    <span class="text-[10px] text-slate-400">By NexoraCreations</span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                    <span class="text-[10px] text-slate-500 font-bold tracking-widest">© 2026 LICENSE</span>
-                </div>
+            <div class="md:text-right">
+                <p class="text-slate-800 font-bold text-xs uppercase tracking-tighter">Developed for <span class="text-blue-600">The Company</span></p>
+                <p class="text-[10px] text-slate-400 mt-2 font-medium italic">By NexoraCreations © 2026 License</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Animations
         ScrollReveal().reveal('.reveal-up', { distance: '50px', origin: 'bottom', duration: 1000, delay: 200 });
         ScrollReveal().reveal('.reveal-right', { distance: '50px', origin: 'right', duration: 1200, delay: 400 });
 
+        // Account Data
+        const accountData = {"212":"LANDS END","265":"EXPRESS WOMEN","522":"FAHERTY MENS","526":"EXPRESS SLEEPWEAR - MENS","527":"EXPRESS SLEEPWEAR - WOMEN","533":"LILLY PULITZER","545":"LE MENS CASUAL","546":"LANDS END KIDS","547":"LANDS END LEBO","576":"TALBOTS","577":"TALBOTS T","582":"TALBOTS CORE","583":"HOBBS","585":"LANDS END SLEEPWEAR","591":"LE MENS SLEEPWEAR","594":"LL BEAN WOMEN","595":"LL BEAN MENS","598":"EXPRESS OUTLET","600":"EXPRESS OUTLET TOPS","609":"EB WOMEN'S CORE","610":"EB MEN'S CORE","611":"EB WOMEN'S OUTLET","614":"EB WOMEN'S OUTERWEAR","615":"EB MEN'S OUTERWEAR","616":"EB KNITS","618":"KOMAR - EB COSTCO","619":"EDDIE BAUER COSTCO","623":"ME+EM","628":"KAREN MILLEN","629":"STUDIO EIGHT","630":"PHASE EIGHT","638":"BLACK DOG","655":"M&S TOPS T43","656":"M&S FORMAL BOTTOMS T59","657":"M&S CASUAL BOTTOMS T57","658":"M&S DRESSES T42","659":"M&S OUTERWEAR & TAYLORING T49","664":"M&S JERSEY TOPS T41","668":"JOCKY INDIAY WOMENS","670":"LUCKY BRAND","673":"FILSON","688":"WHISTLES","696":"CHUBBIES","700":"KOMAR-KOHL'S SIMPLY VERA","701":"KOMAR - CROFT & BARROW","702":"KOMAR - KENSIE","703":"KOMAR - ELLEN TRACY","704":"KOMAR - ANNE KLEIN","705":"KOMAR - LAYLA","706":"KOMAR - ARIA LINE","707":"KOMAR - DKNY","708":"KOMAR - EILEEN WEST","709":"KOMAR-RALPH LAUREN","710":"KOMAR-DILLARDS","711":"KOMAR-COSTCO","712":"KOMAR-HALSTON","713":"KOMAR-KATE SPADE","715":"KOMAR-STEINMART","717":"KOMAR-JONES NY PANTY","718":"KOMAR-ROSS","719":"KOMAR-ELLEN TRACY BRAS","720":"KOMAR-TOMMY BAHAMA","722":"KOMAR - CAROLE HOCHMAN","723":"KOMAR - JOCKY BRAND","724":"KOMAR - DONNA KARAN","725":"KOMAR - ROOM SERVICE","726":"KOMAR - SAKS","727":"KOMAR-BEDHEAD","728":"KOMAR -CLAIR DE LUNE","729":"KOMAR-BETSEY JOHNSON","730":"KOMAR-ROBERT GRAHAM","731":"KOMAR-JANE & BLEECKER","732":"KOMAR- IRELAX","733":"KOMAR-UPWEST","734":"KOMAR-UPWEST WOMENS","735":"KOMAR-QVC INTIMATES","736":"KOMAR-COSTCO KIRKLAND SIGNATURE","737":"KOMAR-REFINERY 29","738":"KOMAR-SHADY LADY","739":"KOMAR-CUDDL DUDS","740":"KOMAR- WALMART KIDS","742":"KOMAR- WALMART ADULTS","744":"KOMAR-NAUTICA","745":"KOMAR-PLANET SLEEP","746":"KOMAR-HERITAGE","747":"KOMAR- EXPRESS SLEEPWEAR","749":"KOMAR-COMFORT CODE SLEEPWEAR","751":"KOMAR-KOHL'S SCRUBS","752":"KOMAR-ON GOSSAMER","753":"KOMAR-EARTH ANGELS","754":"KOMAR-CUDDL DUDS OUTERWEAR","800":"QVC Denim & Co","801":"QVC Denim & Co - FOB","802":"QVC HSN - LEMON WAY","806":"DILLARDS","811":"SPARTINA 449","816":"SEE.MAS","818":"MODCLOTH","820":"BONOBOS","823":"DECATHOLAN","835":"ARITZIA","840":"K LAB - RENT THE RUNWAY","843":"THE PONCHO OUTDOORS","845":"ANTHROPOLOGIE","846":"ATHROPOLOGY","847":"ZIMMERMANN","848":"ZIMMERMANN","853":"SWESS","855":"DESTINATION MATERNITY - MOTHERHOOD","856":"DESTINATION MATERNITY - APIP","860":"LAUREN - RTW","861":"LAUREN - CHAPS","862":"LAUREN - AMERICAN LIVING","863":"CLUB MONACO-MEN WOVEN","864":"CLUB MONACO-WOMEN WOVEN","865":"CLUB MONACO-MEN KNIT","866":"CLUB MONACO-WOMEN KNIT","867":"POLO BLUE-WOMEN","870":"NORTH  STAR SOURCING","875":"TVCS-WOMEN","880":"BOMBAS","883":"MANMADE","949":"DESIGN POD","950":"NOBELS WEAR (SUB)","951":"FULGAR LANKA","0212S":"LANDS END-STAR FISH","0265T":"EXPRESS TEST","0528L":"EXPRESS FACTORY OUTLET – 1 MX","0707L":"KOMAR-DKNY LLI","628S":"REPUBLIC CLOTHING"};
+
+        function searchAccount() {
+            const input = document.getElementById('accInput').value.trim().toUpperCase();
+            const res = document.getElementById('resultBox');
+            if(accountData[input]) {
+                res.innerText = accountData[input];
+                res.className = "w-full md:w-auto min-w-[350px] px-8 py-5 bg-green-600 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated animate__pulse italic";
+            } else if(input === "") {
+                res.innerText = "WAITING FOR INPUT...";
+                res.className = "w-full md:w-auto min-w-[350px] px-8 py-5 bg-slate-900 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated uppercase";
+            } else {
+                res.innerText = "NOT FOUND";
+                res.className = "w-full md:w-auto min-w-[350px] px-8 py-5 bg-red-600 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated animate__headShake uppercase";
+            }
+        }
+
+        // Gallery Population
         const grid = document.getElementById('visual-grid');
         for (let i = 1; i <= 52; i++) {
             const el = document.createElement('div');
-            el.className = "group relative aspect-square bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500 transition-all duration-500 cursor-pointer";
+            el.className = "group relative aspect-square bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500";
             el.innerHTML = `
-                <div class="absolute inset-0 flex items-center justify-center text-[10px] font-black text-slate-700">IMG-${i}</div>
-                <img src="images/${i}.jpg" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" onload="this.style.opacity=1">
-                <div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/90 to-transparent">
-                    <p class="text-[9px] font-black text-blue-400 tracking-tighter uppercase underline decoration-blue-500/50">Reference Point ${i.toString().padStart(2, '0')}</p>
+                <div class="absolute inset-0 flex items-center justify-center text-[10px] font-black text-slate-700">REF-${i}</div>
+                <img src="images/${i}.jpg" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" onload="this.style.opacity=1" onerror="this.style.display='none'">
+                <div class="absolute inset-x-0 bottom-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform bg-gradient-to-t from-black to-transparent">
+                    <p class="text-[9px] font-black text-blue-400 uppercase tracking-widest">Visual Evidence ${i}</p>
                 </div>
             `;
             grid.appendChild(el);
