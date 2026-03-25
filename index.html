@@ -15,27 +15,37 @@
         .stat-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f5f9; }
         .stat-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); border-color: #3b82f6; }
         .img-box { border-radius: 1.5rem; background: #1e293b; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
-        input::placeholder { font-weight: 400; font-size: 0.9rem; color: #94a3b8; }
     </style>
 </head>
 <body class="bg-slate-50">
 
+    <div id="maintenance-overlay" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-slate-900/60 backdrop-blur-2xl">
+        <div class="bg-white p-10 rounded-[3rem] shadow-2xl text-center max-w-lg border border-slate-100 animate__animated animate__zoomIn">
+            <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+            </div>
+            <h2 class="text-3xl font-black text-slate-900 mb-4 uppercase">Under Development</h2>
+            <p class="text-slate-500 mb-8 text-sm">This portal is currently being updated. Access is restricted to authorized personnel only.</p>
+            <input type="password" id="adminPass" placeholder="Enter Admin Password" class="w-full px-6 py-3 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-center font-bold mb-4 bg-slate-50">
+            <button onclick="checkAdmin()" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-blue-600 transition">Unlock for Preview</button>
+        </div>
+    </div>
+
     <nav class="fixed w-full z-50 glass-nav">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center gap-6">
-                <div class="h-14 w-44 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1 shadow-sm">
-                    <img src="logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
+                <div class="h-14 w-44 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
+                    <img src="logo.png" alt="Logo" class="max-w-full max-h-full object-contain">
                 </div>
                 <div class="border-l pl-6 border-slate-300">
-                    <h1 class="text-xl font-black tracking-tight text-slate-900 leading-none">QUALITY ASSURANCE</h1>
-                    <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 font-bold mt-1">Industrial Training Portal</p>
+                    <h1 class="text-xl font-black text-slate-900 leading-none">QUALITY ASSURANCE</h1>
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-blue-600 font-bold mt-1">Industrial Training Portal</p>
                 </div>
             </div>
-            
-            <div class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+            <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-widest text-slate-500">
                 <a href="#overview" class="hover:text-blue-600 transition">Overview</a>
                 <a href="#account-lookup" class="hover:text-blue-600 transition">Search</a>
-                <a href="#standards" class="hover:text-blue-600 transition">Standards</a>
+                <a href="#standards" class="hover:text-blue-600 transition">AQL</a>
                 <a href="#gallery" class="hover:text-blue-600 transition">Gallery</a>
             </div>
         </div>
@@ -44,23 +54,17 @@
     <section id="overview" class="min-h-screen hero-bg text-white flex items-center pt-20">
         <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold mb-8 tracking-widest uppercase">
-                    Trim & Accessories Inspection Module
-                </div>
-                <h2 class="text-6xl lg:text-7xl font-black leading-[0.9] mb-8 uppercase italic">Trim <br><span class="text-blue-500">Id System.</span></h2>
-                <p class="text-slate-400 text-lg leading-relaxed max-w-lg mb-10 font-light">
-                    Industrial guide for assuring trims and accessories per buyer standards and minimizing quality rejections.
-                </p>
-                <div class="flex gap-6">
-                    <div class="flex flex-col"><span class="text-3xl font-black tracking-tighter">52</span><span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Visuals</span></div>
-                    <div class="w-px h-12 bg-slate-800"></div>
-                    <div class="flex flex-col"><span class="text-3xl font-black tracking-tighter text-blue-400">0.65</span><span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">M&S AQL</span></div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold mb-8 tracking-widest uppercase">Official Module</div>
+                <h2 class="text-6xl lg:text-7xl font-black leading-[0.9] mb-8 italic uppercase tracking-tighter">TRIM <br><span class="text-blue-500">IDENTIFICATION</span></h2>
+                <div class="flex gap-10">
+                    <div><span class="text-4xl font-black block">52</span><span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Visual Guides</span></div>
+                    <div><span class="text-4xl font-black block text-blue-400">0.65</span><span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">AQL Standard</span></div>
                 </div>
             </div>
             <div class="reveal-right">
-                <div class="img-box shadow-2xl shadow-blue-900/40 border-8 border-white/5 aspect-video flex items-center justify-center">
-                    <img src="images/1.jpg" alt="Main Title Visual" class="w-full h-full object-cover opacity-0 transition-opacity duration-1000" onload="this.style.opacity=1">
-                    <p id="img-error-1" class="absolute text-slate-600 font-mono text-xs italic">IMG 1 - Main Visual</p>
+                <div class="img-box shadow-2xl aspect-video flex items-center justify-center border-8 border-white/5 bg-slate-800">
+                    <img src="images/1.jpg" class="w-full h-full object-cover opacity-0 transition-opacity" onload="this.style.opacity=1">
+                    <span class="absolute text-slate-600 italic text-xs">IMG 1 - MAIN VISUAL</span>
                 </div>
             </div>
         </div>
@@ -68,107 +72,111 @@
 
     <section id="account-lookup" class="py-24 bg-slate-100">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white p-10 rounded-[3rem] shadow-2xl border border-blue-50 shadow-blue-900/5">
-                <div class="text-center mb-10">
-                    <h3 class="text-2xl font-black text-slate-900 italic uppercase">Quick Account Lookup</h3>
-                    <p class="text-slate-400 text-sm mt-2">Enter the Account Number to identify the Buyer name.</p>
-                </div>
-                <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
-                    <input type="text" id="accInput" onkeyup="searchAccount()" placeholder="e.g. 212 or 628S" 
-                        class="w-full md:w-72 px-8 py-5 rounded-2xl border-2 border-slate-100 focus:border-blue-500 outline-none transition-all font-black text-2xl text-center text-blue-900 shadow-inner bg-slate-50">
-                    <div class="hidden md:block text-slate-300">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="3" d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
-                    </div>
-                    <div id="resultBox" class="w-full md:w-auto min-w-[350px] px-8 py-5 bg-slate-900 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated uppercase tracking-tight">
-                        WAITING FOR INPUT...
-                    </div>
+            <div class="max-w-4xl mx-auto bg-white p-10 rounded-[3rem] shadow-xl text-center">
+                <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-6 tracking-tight">Quick Account Lookup</h3>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <input type="text" id="accInput" onkeyup="searchAccount()" placeholder="e.g. 212 or 628S" class="w-full md:w-72 px-8 py-4 rounded-2xl border-2 border-slate-100 focus:border-blue-600 outline-none text-2xl font-black text-center text-blue-900 bg-slate-50">
+                    <div id="resultBox" class="w-full md:min-w-[400px] px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-xl shadow-lg transition-all duration-300">WAITING FOR INPUT...</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="standards" class="py-32 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-3 gap-10">
-                <div class="stat-card p-12 rounded-[2.5rem] bg-slate-50 reveal-up border-b-8 border-blue-500">
-                    <h3 class="text-2xl font-black text-slate-900 mb-8 italic">AQL System</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white p-5 rounded-2xl flex justify-between items-center"><span class="font-bold text-slate-400 text-sm">M&S</span><span class="text-2xl font-black text-blue-600">0.65</span></div>
-                        <div class="bg-white p-5 rounded-2xl flex justify-between items-center"><span class="font-bold text-slate-400 text-sm">OTHER</span><span class="text-2xl font-black text-blue-600">2.50</span></div>
-                    </div>
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div class="stat-card p-10 rounded-[2.5rem] bg-slate-50 reveal-up">
+                <h4 class="text-blue-600 font-bold text-xs uppercase mb-6 tracking-widest">Quality Level</h4>
+                <div class="space-y-4 font-black">
+                    <div class="bg-white p-5 rounded-xl flex justify-between"><span>M&S</span><span class="text-blue-600 text-xl">0.65</span></div>
+                    <div class="bg-white p-5 rounded-xl flex justify-between"><span>OTHERS</span><span class="text-blue-600 text-xl">2.50</span></div>
                 </div>
-                <div class="stat-card p-12 rounded-[2.5rem] bg-white border-t-[16px] border-green-500 reveal-up shadow-lg" style="transition-delay: 150ms;">
-                    <h3 class="text-2xl font-black text-slate-900 mb-4 italic uppercase">Green Tag</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Verification passed. Attach Green Tag and transfer to Central Warehouse (CWH).</p>
-                </div>
-                <div class="stat-card p-12 rounded-[2.5rem] bg-white border-t-[16px] border-red-500 reveal-up shadow-lg" style="transition-delay: 300ms;">
-                    <h3 class="text-2xl font-black text-slate-900 mb-4 italic uppercase">Red Tag</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Defects identified. Generate Reject Report. Move to Isolation for review.</p>
-                </div>
+            </div>
+            <div class="stat-card p-10 rounded-[2.5rem] bg-green-50 border-t-8 border-green-500 reveal-up" style="transition-delay: 200ms;">
+                <h3 class="text-xl font-black text-green-800 mb-4 uppercase italic">Green Tag</h3>
+                <p class="text-slate-600 text-sm">Inspection Passed. Release to Central Warehouse (CWH).</p>
+            </div>
+            <div class="stat-card p-10 rounded-[2.5rem] bg-red-50 border-t-8 border-red-500 reveal-up" style="transition-delay: 400ms;">
+                <h3 class="text-xl font-black text-red-800 mb-4 uppercase italic">Red Tag</h3>
+                <p class="text-slate-600 text-sm">Defects Identified. Move to Isolation and Report to QAM.</p>
             </div>
         </div>
     </section>
 
     <section id="gallery" class="py-32 bg-slate-950">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-black text-white italic tracking-tighter">VISUAL EVIDENCE LIBRARY</h2>
-                <div class="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
-            </div>
+            <h2 class="text-center text-white text-3xl font-black uppercase italic mb-16 tracking-widest">Visual Evidence Library</h2>
             <div id="visual-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
         </div>
     </section>
 
-    <footer class="bg-white py-16 border-t border-slate-100">
+    <footer class="bg-white py-16 border-t">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
             <div class="flex items-center gap-4">
-                <div class="h-10 w-24 flex items-center justify-center border rounded grayscale opacity-50"><img src="logo.png" class="max-h-full object-contain"></div>
-                <div><p class="font-black text-slate-900 text-sm uppercase">Training Portal</p><p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Compliance Division</p></div>
+                <img src="logo.png" class="h-10 grayscale opacity-40">
+                <div><p class="font-black text-sm uppercase">QA Training Portal</p><p class="text-[9px] text-slate-400 font-bold tracking-widest">Compliance Division</p></div>
             </div>
             <div class="md:text-right">
-                <p class="text-slate-800 font-bold text-xs uppercase tracking-tighter">Developed for <span class="text-blue-600">The Company</span></p>
-                <p class="text-[10px] text-slate-400 mt-2 font-medium italic">By NexoraCreations © 2026 License</p>
+                <p class="text-xs font-bold text-slate-800 uppercase tracking-tighter">Developed for <span class="text-blue-600">The Company</span></p>
+                <p class="text-[9px] text-slate-400 mt-1">By NexoraCreations © 2026 License</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Animations
-        ScrollReveal().reveal('.reveal-up', { distance: '50px', origin: 'bottom', duration: 1000, delay: 200 });
-        ScrollReveal().reveal('.reveal-right', { distance: '50px', origin: 'right', duration: 1200, delay: 400 });
+        // --- ADMIN & DEVELOPMENT CONTROL ---
+        const isDevelopmentMode = true; // Block කිරීමට 'true' කරන්න, සාමාන්‍ය පෙනුමට 'false' කරන්න
+        const adminPass = "admin123";
 
-        // Account Data
-        const accountData = {"212":"LANDS END","265":"EXPRESS WOMEN","522":"FAHERTY MENS","526":"EXPRESS SLEEPWEAR - MENS","527":"EXPRESS SLEEPWEAR - WOMEN","533":"LILLY PULITZER","545":"LE MENS CASUAL","546":"LANDS END KIDS","547":"LANDS END LEBO","576":"TALBOTS","577":"TALBOTS T","582":"TALBOTS CORE","583":"HOBBS","585":"LANDS END SLEEPWEAR","591":"LE MENS SLEEPWEAR","594":"LL BEAN WOMEN","595":"LL BEAN MENS","598":"EXPRESS OUTLET","600":"EXPRESS OUTLET TOPS","609":"EB WOMEN'S CORE","610":"EB MEN'S CORE","611":"EB WOMEN'S OUTLET","614":"EB WOMEN'S OUTERWEAR","615":"EB MEN'S OUTERWEAR","616":"EB KNITS","618":"KOMAR - EB COSTCO","619":"EDDIE BAUER COSTCO","623":"ME+EM","628":"KAREN MILLEN","629":"STUDIO EIGHT","630":"PHASE EIGHT","638":"BLACK DOG","655":"M&S TOPS T43","656":"M&S FORMAL BOTTOMS T59","657":"M&S CASUAL BOTTOMS T57","658":"M&S DRESSES T42","659":"M&S OUTERWEAR & TAYLORING T49","664":"M&S JERSEY TOPS T41","668":"JOCKY INDIAY WOMENS","670":"LUCKY BRAND","673":"FILSON","688":"WHISTLES","696":"CHUBBIES","700":"KOMAR-KOHL'S SIMPLY VERA","701":"KOMAR - CROFT & BARROW","702":"KOMAR - KENSIE","703":"KOMAR - ELLEN TRACY","704":"KOMAR - ANNE KLEIN","705":"KOMAR - LAYLA","706":"KOMAR - ARIA LINE","707":"KOMAR - DKNY","708":"KOMAR - EILEEN WEST","709":"KOMAR-RALPH LAUREN","710":"KOMAR-DILLARDS","711":"KOMAR-COSTCO","712":"KOMAR-HALSTON","713":"KOMAR-KATE SPADE","715":"KOMAR-STEINMART","717":"KOMAR-JONES NY PANTY","718":"KOMAR-ROSS","719":"KOMAR-ELLEN TRACY BRAS","720":"KOMAR-TOMMY BAHAMA","722":"KOMAR - CAROLE HOCHMAN","723":"KOMAR - JOCKY BRAND","724":"KOMAR - DONNA KARAN","725":"KOMAR - ROOM SERVICE","726":"KOMAR - SAKS","727":"KOMAR-BEDHEAD","728":"KOMAR -CLAIR DE LUNE","729":"KOMAR-BETSEY JOHNSON","730":"KOMAR-ROBERT GRAHAM","731":"KOMAR-JANE & BLEECKER","732":"KOMAR- IRELAX","733":"KOMAR-UPWEST","734":"KOMAR-UPWEST WOMENS","735":"KOMAR-QVC INTIMATES","736":"KOMAR-COSTCO KIRKLAND SIGNATURE","737":"KOMAR-REFINERY 29","738":"KOMAR-SHADY LADY","739":"KOMAR-CUDDL DUDS","740":"KOMAR- WALMART KIDS","742":"KOMAR- WALMART ADULTS","744":"KOMAR-NAUTICA","745":"KOMAR-PLANET SLEEP","746":"KOMAR-HERITAGE","747":"KOMAR- EXPRESS SLEEPWEAR","749":"KOMAR-COMFORT CODE SLEEPWEAR","751":"KOMAR-KOHL'S SCRUBS","752":"KOMAR-ON GOSSAMER","753":"KOMAR-EARTH ANGELS","754":"KOMAR-CUDDL DUDS OUTERWEAR","800":"QVC Denim & Co","801":"QVC Denim & Co - FOB","802":"QVC HSN - LEMON WAY","806":"DILLARDS","811":"SPARTINA 449","816":"SEE.MAS","818":"MODCLOTH","820":"BONOBOS","823":"DECATHOLAN","835":"ARITZIA","840":"K LAB - RENT THE RUNWAY","843":"THE PONCHO OUTDOORS","845":"ANTHROPOLOGIE","846":"ATHROPOLOGY","847":"ZIMMERMANN","848":"ZIMMERMANN","853":"SWESS","855":"DESTINATION MATERNITY - MOTHERHOOD","856":"DESTINATION MATERNITY - APIP","860":"LAUREN - RTW","861":"LAUREN - CHAPS","862":"LAUREN - AMERICAN LIVING","863":"CLUB MONACO-MEN WOVEN","864":"CLUB MONACO-WOMEN WOVEN","865":"CLUB MONACO-MEN KNIT","866":"CLUB MONACO-WOMEN KNIT","867":"POLO BLUE-WOMEN","870":"NORTH  STAR SOURCING","875":"TVCS-WOMEN","880":"BOMBAS","883":"MANMADE","949":"DESIGN POD","950":"NOBELS WEAR (SUB)","951":"FULGAR LANKA","0212S":"LANDS END-STAR FISH","0265T":"EXPRESS TEST","0528L":"EXPRESS FACTORY OUTLET – 1 MX","0707L":"KOMAR-DKNY LLI","628S":"REPUBLIC CLOTHING"};
+        window.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('maintenance-overlay');
+            if (isDevelopmentMode && sessionStorage.getItem('unlocked') !== 'true') {
+                overlay.style.display = 'flex';
+            }
+        });
+
+        function checkAdmin() {
+            if (document.getElementById('adminPass').value === adminPass) {
+                sessionStorage.setItem('unlocked', 'true');
+                document.getElementById('maintenance-overlay').classList.add('animate__fadeOut');
+                setTimeout(() => document.getElementById('maintenance-overlay').style.display = 'none', 800);
+            } else { alert("Access Denied!"); }
+        }
+
+        // --- ACCOUNT DATA ---
+        const accounts = {"212":"LANDS END","265":"EXPRESS WOMEN","522":"FAHERTY MENS","526":"EXPRESS SLEEPWEAR - MENS","527":"EXPRESS SLEEPWEAR - WOMEN","533":"LILLY PULITZER","545":"LE MENS CASUAL","546":"LANDS END KIDS","547":"LANDS END LEBO","576":"TALBOTS","577":"TALBOTS T","582":"TALBOTS CORE","583":"HOBBS","585":"LANDS END SLEEPWEAR","591":"LE MENS SLEEPWEAR","594":"LL BEAN WOMEN","595":"LL BEAN MENS","598":"EXPRESS OUTLET","600":"EXPRESS OUTLET TOPS","609":"EB WOMEN'S CORE","610":"EB MEN'S CORE","611":"EB WOMEN'S OUTLET","614":"EB WOMEN'S OUTERWEAR","615":"EB MEN'S OUTERWEAR","616":"EB KNITS","618":"KOMAR - EB COSTCO","619":"EDDIE BAUER COSTCO","623":"ME+EM","628":"KAREN MILLEN","629":"STUDIO EIGHT","630":"PHASE EIGHT","638":"BLACK DOG","655":"M&S TOPS T43","656":"M&S FORMAL BOTTOMS T59","657":"M&S CASUAL BOTTOMS T57","658":"M&S DRESSES T42","659":"M&S OUTERWEAR & TAYLORING T49","664":"M&S JERSEY TOPS T41","668":"JOCKY INDIAY WOMENS","670":"LUCKY BRAND","673":"FILSON","688":"WHISTLES","696":"CHUBBIES","700":"KOMAR-KOHL'S SIMPLY VERA","701":"KOMAR - CROFT & BARROW","702":"KOMAR - KENSIE","703":"KOMAR - ELLEN TRACY","704":"KOMAR - ANNE KLEIN","705":"KOMAR - LAYLA","706":"KOMAR - ARIA LINE","707":"KOMAR - DKNY","708":"KOMAR - EILEEN WEST","709":"KOMAR-RALPH LAUREN","710":"KOMAR-DILLARDS","711":"KOMAR-COSTCO","712":"KOMAR-HALSTON","713":"KOMAR-KATE SPADE","715":"KOMAR-STEINMART","717":"KOMAR-JONES NY PANTY","718":"KOMAR-ROSS","719":"KOMAR-ELLEN TRACY BRAS","720":"KOMAR-TOMMY BAHAMA","722":"KOMAR - CAROLE HOCHMAN","723":"KOMAR - JOCKY BRAND","724":"KOMAR - DONNA KARAN","725":"KOMAR - ROOM SERVICE","726":"KOMAR - SAKS","727":"KOMAR-BEDHEAD","728":"KOMAR -CLAIR DE LUNE","729":"KOMAR-BETSEY JOHNSON","730":"KOMAR-ROBERT GRAHAM","731":"KOMAR-JANE & BLEECKER","732":"KOMAR- IRELAX","733":"KOMAR-UPWEST","734":"KOMAR-UPWEST WOMENS","735":"KOMAR-QVC INTIMATES","736":"KOMAR-COSTCO KIRKLAND SIGNATURE","737":"KOMAR-REFINERY 29","738":"KOMAR-SHADY LADY","739":"KOMAR-CUDDL DUDS","740":"KOMAR- WALMART KIDS","742":"KOMAR- WALMART ADULTS","744":"KOMAR-NAUTICA","745":"KOMAR-PLANET SLEEP","746":"KOMAR-HERITAGE","747":"KOMAR- EXPRESS SLEEPWEAR","749":"KOMAR-COMFORT CODE SLEEPWEAR","751":"KOMAR-KOHL'S SCRUBS","752":"KOMAR-ON GOSSAMER","753":"KOMAR-EARTH ANGELS","754":"KOMAR-CUDDL DUDS OUTERWEAR","800":"QVC Denim & Co","801":"QVC Denim & Co - FOB","802":"QVC HSN - LEMON WAY","806":"DILLARDS","811":"SPARTINA 449","816":"SEE.MAS","818":"MODCLOTH","820":"BONOBOS","823":"DECATHOLAN","835":"ARITZIA","840":"K LAB - RENT THE RUNWAY","843":"THE PONCHO OUTDOORS","845":"ANTHROPOLOGIE","846":"ATHROPOLOGY","847":"ZIMMERMANN","848":"ZIMMERMANN","853":"SWESS","855":"DESTINATION MATERNITY - MOTHERHOOD","856":"DESTINATION MATERNITY - APIP","860":"LAUREN - RTW","861":"LAUREN - CHAPS","862":"LAUREN - AMERICAN LIVING","863":"CLUB MONACO-MEN WOVEN","864":"CLUB MONACO-WOMEN WOVEN","865":"CLUB MONACO-MEN KNIT","866":"CLUB MONACO-WOMEN KNIT","867":"POLO BLUE-WOMEN","870":"NORTH  STAR SOURCING","875":"TVCS-WOMEN","880":"BOMBAS","883":"MANMADE","949":"DESIGN POD","950":"NOBELS WEAR (SUB)","951":"FULGAR LANKA","0212S":"LANDS END-STAR FISH","0265T":"EXPRESS TEST","0528L":"EXPRESS FACTORY OUTLET – 1 MX","0707L":"KOMAR-DKNY LLI","628S":"REPUBLIC CLOTHING"};
 
         function searchAccount() {
-            const input = document.getElementById('accInput').value.trim().toUpperCase();
-            const res = document.getElementById('resultBox');
-            if(accountData[input]) {
-                res.innerText = accountData[input];
-                res.className = "w-full md:w-auto min-w-[350px] px-8 py-5 bg-green-600 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated animate__pulse italic";
-            } else if(input === "") {
-                res.innerText = "WAITING FOR INPUT...";
-                res.className = "w-full md:w-auto min-w-[350px] px-8 py-5 bg-slate-900 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated uppercase";
+            const val = document.getElementById('accInput').value.trim().toUpperCase();
+            const box = document.getElementById('resultBox');
+            if(accounts[val]) {
+                box.innerText = accounts[val];
+                box.className = "w-full md:min-w-[400px] px-8 py-4 bg-green-600 text-white rounded-2xl font-black text-xl shadow-lg italic animate__animated animate__pulse";
+            } else if(val === "") {
+                box.innerText = "WAITING FOR INPUT...";
+                box.className = "w-full md:min-w-[400px] px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-xl shadow-lg uppercase";
             } else {
-                res.innerText = "NOT FOUND";
-                res.className = "w-full md:w-auto min-w-[350px] px-8 py-5 bg-red-600 text-white rounded-2xl font-black text-xl text-center shadow-xl animate__animated animate__headShake uppercase";
+                box.innerText = "NOT FOUND";
+                box.className = "w-full md:min-w-[400px] px-8 py-4 bg-red-600 text-white rounded-2xl font-black text-xl shadow-lg animate__animated animate__headShake";
             }
         }
 
-        // Gallery Population
-        const grid = document.getElementById('visual-grid');
+        // --- GALLERY GENERATION ---
+        const galleryGrid = document.getElementById('visual-grid');
         for (let i = 1; i <= 52; i++) {
-            const el = document.createElement('div');
-            el.className = "group relative aspect-square bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500";
-            el.innerHTML = `
-                <div class="absolute inset-0 flex items-center justify-center text-[10px] font-black text-slate-700">REF-${i}</div>
-                <img src="images/${i}.jpg" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" onload="this.style.opacity=1" onerror="this.style.display='none'">
-                <div class="absolute inset-x-0 bottom-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform bg-gradient-to-t from-black to-transparent">
-                    <p class="text-[9px] font-black text-blue-400 uppercase tracking-widest">Visual Evidence ${i}</p>
+            const item = document.createElement('div');
+            item.className = "group relative aspect-square bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500 transition-all duration-500";
+            item.innerHTML = `
+                <div class="absolute inset-0 flex items-center justify-center text-[10px] font-black text-slate-800 italic">REF-${i}</div>
+                <img src="images/${i}.jpg" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" onload="this.style.opacity=1">
+                <div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black translate-y-full group-hover:translate-y-0 transition-transform">
+                    <p class="text-[9px] font-black text-blue-400 uppercase tracking-widest">Evidence ${i}</p>
                 </div>
             `;
-            grid.appendChild(el);
+            galleryGrid.appendChild(item);
         }
+
+        ScrollReveal().reveal('.reveal-up', { distance: '50px', origin: 'bottom', duration: 1000 });
+        ScrollReveal().reveal('.reveal-right', { distance: '50px', origin: 'right', duration: 1200 });
     </script>
 </body>
 </html>
